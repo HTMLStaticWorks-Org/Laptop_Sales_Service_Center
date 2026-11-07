@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services & Repair Tracking | Lapserv</title><meta name="description" content="Lapserv – Explore laptop repair services, the diagnostic process and a clearly labelled tracking demonstration.">
+<link rel="icon" href="assets/images/favicon.png" type="image/png"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="assets/images/favicon.png"><link rel="stylesheet" href="assets/css/style.css"></head><body>
+
+<header class="site-header"><div class="container nav">
+<a class="brand" href="index.html" aria-label="Lapserv Home"><img src="assets/images/logo.png" alt="Lapserv"></a>
+<button class="menu-btn" aria-label="Open navigation">☰</button>
+<nav class="nav-links" aria-label="Main navigation">
+<a href="index.html">Home 1</a><a href="home-2.html">Home 2</a><a href="about.html">About</a><a href="laptops.html">Laptops</a><a class="active" aria-current="page" href="services.html">Services</a><a href="contact.html">Contact</a>
+</nav>
+<div class="nav-actions"><div class="nav-toggles" role="group" aria-label="Display preferences"><button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><span class="toggle-divider" aria-hidden="true"></span><button class="icon-btn" type="button" data-dir-toggle aria-label="Toggle text direction"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16l-4-4 4-4M17 8l4 4-4 4M3 12h18"/></svg><span data-dir-label>RTL</span></button></div><a class="btn btn-primary" href="contact.html">Book a repair</a></div>
+</div></header>
+
+<main>
+<section class="page-hero"><div class="container"><span class="eyebrow">Technical support</span><h1>Repair services with a clear process.</h1><p>Explore common repair categories, understand estimate approval and see how a service-job tracking workflow can be presented.</p></div></section>
+<section class="section"><div class="container"><div class="grid grid-3">
+<div class="card"><div class="card-icon">⌘</div><h3>Motherboard diagnostics</h3><p>Board-level fault investigation and chip-level repair where supported by the technician and equipment.</p></div>
+<div class="card"><div class="card-icon">▣</div><h3>Screen replacement</h3><p>OLED and IPS display assessment and replacement options, subject to model compatibility.</p></div>
+<div class="card"><div class="card-icon">⌨</div><h3>Keyboard and hinge</h3><p>Keyboard, hinge and enclosure inspection and restoration.</p></div>
+<div class="card"><div class="card-icon">◉</div><h3>Liquid damage</h3><p>Inspection and board cleaning. Device recovery cannot be guaranteed.</p></div>
+<div class="card"><div class="card-icon">❄</div><h3>Thermal maintenance</h3><p>Cooling inspection and thermal repasting where appropriate.</p></div>
+<div class="card"><div class="card-icon">↗</div><h3>RAM and NVMe upgrades</h3><p>Compatibility checks and upgrade options for supported laptop models.</p></div>
+</div></div></section>
+<section class="section alt"><div class="container split"><div><span class="eyebrow">Service workflow</span><h2>From device intake to quality checks.</h2><p>Paid repair work should begin only after the customer has reviewed and approved the estimate.</p></div><div class="card"><div class="steps"><div class="step"><strong>Device received</strong><p>Record device and reported symptoms.</p></div><div class="step"><strong>Diagnosis</strong><p>Inspect and identify the likely fault.</p></div><div class="step"><strong>Estimate approval</strong><p>Share the estimate and obtain approval.</p></div><div class="step"><strong>Repair and testing</strong><p>Complete approved work and test the device.</p></div><div class="step"><strong>Ready / delivered</strong><p>Communicate the handover status.</p></div></div></div></div></section>
+<section class="section" id="tracking"><div class="container"><div class="section-head"><div><span class="eyebrow">Service Job ID</span><h2>Track a repair</h2></div></div><div class="grid grid-2"><div class="card"><h3>Repair status lookup interface</h3><p>Enter a service job reference to demonstrate the tracking interaction.</p><form id="track-form"><div class="form-field"><label for="jobid">Service Job ID</label><input class="field" id="jobid" name="jobid" placeholder="Example: LPS-000123" required></div><button class="btn btn-primary" style="margin-top:14px">Check status</button></form><div id="tracking-result" class="notice hidden" style="margin-top:16px" aria-live="polite"></div></div><div class="card"><span class="tag">Frontend demonstration</span><h3>Important tracking limitation</h3><p>This page is not connected to a repair database. It cannot retrieve real customer records or current job status.</p><p>A production implementation needs a secure backend, job database, verified lookup/access controls and server-side authorization.</p></div></div></div></section>
+<section class="section alt"><div class="container faq"><span class="eyebrow">Common questions</span><h2>Repair FAQs</h2>
+<details><summary>How long will my repair take?</summary><p>Timing depends on the diagnosis, parts availability and approved work. Confirm an estimate with Lapserv.</p></details>
+<details><summary>Will I receive a repair estimate first?</summary><p>The intended process is to share the diagnosis and estimate and obtain approval before paid work begins.</p></details>
+<details><summary>Can I upgrade RAM or storage?</summary><p>Upgrade options depend on the exact laptop model, supported memory and storage interfaces.</p></details>
+<details><summary>Do you guarantee liquid-damage recovery?</summary><p>No recovery guarantee should be made. Liquid damage can affect multiple components and requires inspection.</p></details>
+<details><summary>Should I share my laptop password on this page?</summary><p>No. Do not submit passwords or sensitive device credentials through a public enquiry form.</p></details>
+</div></section>
+</main>
+
+<footer class="footer"><div class="container">
+<div class="footer-grid">
+<div><a class="brand" href="index.html" aria-label="Lapserv Home"><img src="assets/images/logo.png" alt="Lapserv"></a><p>Practical laptop sales, diagnostics and repair information. Replace this text with the verified business profile before launch.</p><div class="social-links" aria-label="Social media"><a class="social-btn" href="#facebook" aria-label="Lapserv on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a class="social-btn" href="#instagram" aria-label="Lapserv on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a class="social-btn" href="#linkedin" aria-label="Lapserv on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div></div>
+<div><h3>Explore</h3><div class="footer-links"><a href="laptops.html">Laptop catalogue</a><a href="services.html">Repair services</a><a href="about.html">About us</a></div></div>
+<div><h3>Get in touch</h3><div class="footer-links"><a href="contact.html">Contact and enquiries</a><a href="services.html#tracking">Repair tracking demo</a><a href="contact.html#booking">Request an appointment</a></div></div>
+<div><h3>Newsletter</h3><p>Subscribe for new laptop arrivals, upgrade tips and service updates.</p><form class="newsletter-form" data-newsletter-form><input class="field" type="email" name="email" required placeholder="Enter your email" aria-label="Email address"><button class="btn btn-primary" type="submit">Subscribe</button></form><div class="newsletter-msg hidden" aria-live="polite"></div></div>
+</div><div class="copyright">© <span data-year></span> Lapserv. Replace with the registered business details before publication.</div>
+</div></footer>
+<script src="assets/js/main.js"></script>
+
+</body></html>
