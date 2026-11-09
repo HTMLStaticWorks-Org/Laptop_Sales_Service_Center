@@ -9,13 +9,88 @@
 <nav class="nav-links" aria-label="Main navigation">
 <a href="index.html">Home 1</a><a href="home-2.html">Home 2</a><a class="active" aria-current="page" href="about.html">About</a><a href="laptops.html">Laptops</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
 </nav>
-<div class="nav-actions"><div class="nav-toggles" role="group" aria-label="Display preferences"><button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><span class="toggle-divider" aria-hidden="true"></span><button class="icon-btn" type="button" data-dir-toggle aria-label="Toggle text direction"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16l-4-4 4-4M17 8l4 4-4 4M3 12h18"/></svg><span data-dir-label>RTL</span></button></div><a class="btn btn-primary" href="contact.html">Book a repair</a></div>
+<div class="nav-actions"><div class="nav-toggles" role="group" aria-label="Display preferences"><button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><span class="toggle-divider" aria-hidden="true"></span><button class="icon-btn" type="button" data-dir-toggle aria-label="Toggle text direction"><span data-dir-label>RTL</span></button></div><a class="btn btn-primary" href="contact.html">Book a repair</a></div>
 </div></header>
 
 <main>
 <section class="page-hero"><div class="container"><span class="eyebrow">About the business</span><h1>Practical technology support, built on clarity.</h1><p>This page is ready for the business owner's verified story, location, experience and service credentials. Replace the sample positioning below with confirmed company information.</p></div></section>
 <section class="section"><div class="container split"><div><h2>Our approach</h2><p>We aim to make laptop buying and repair decisions easier to understand. Customers should receive relevant product information, a clear diagnosis process and an estimate to approve before paid repair work begins.</p><p>Our service scope, technician qualifications and parts sourcing should be described accurately and supported by current records.</p></div><img src="assets/images/workstation-art.svg" alt="Modern computer workstation"></div></section>
-<section class="section alt"><div class="container"><div class="section-head"><div><span class="eyebrow">What we focus on</span><h2>Four principles for better service</h2></div></div><div class="grid grid-4"><div class="card"><div class="card-icon">01</div><h3>Clarity</h3><p>Explain findings, options, costs and limitations before proceeding.</p></div><div class="card"><div class="card-icon">02</div><h3>Compatibility</h3><p>Check laptop model and component compatibility before upgrades.</p></div><div class="card"><div class="card-icon">03</div><h3>Care</h3><p>Handle customer devices and information responsibly.</p></div><div class="card"><div class="card-icon">04</div><h3>Verification</h3><p>Test completed work and communicate the handover status.</p></div></div></div></section>
+
+<!-- NEW SECTION 1: Inside Our Engineering Lab & Diagnostic Equipment -->
+<section class="section alt" id="lab-equipment"><div class="container">
+<div class="section-head"><div><span class="eyebrow">Lab infrastructure</span><h2>Specialized Engineering & Diagnostic Equipment</h2></div><p>Accurate board-level diagnostics require industrial-grade measurement tools, not guesswork. Here is the equipment powering our bench.</p></div>
+<div class="lab-gear-grid">
+<div class="lab-gear-card">
+<div class="lab-gear-icon">🔍</div>
+<div>
+<h3>FLIR Infrared Thermal Imaging Station</h3>
+<p>Pinpoints microscopic short-circuits, faulted buck-converters, and damaged power rails down to 0.1°C temperature variance without risking silicon burn.</p>
+<div class="lab-gear-specs"><span>Sensitivity: &lt;50mK</span><span>Resolution: 320x240 IR</span><span>Non-destructive telemetry</span></div>
+</div>
+</div>
+
+<div class="lab-gear-card">
+<div class="lab-gear-icon">⚡</div>
+<div>
+<h3>JBC Precision Nano-Soldering & BGA Rework</h3>
+<p>Micro-tweezer and hot-air rework station capable of replacing 01005 surface-mount resistors, power MOSFETs, and high-density BGA controller ICs.</p>
+<div class="lab-gear-specs"><span>Rapid 2-sec Heatup</span><span>Lead-Free Calibration</span><span>Microscope Mounted</span></div>
+</div>
+</div>
+
+<div class="lab-gear-card">
+<div class="lab-gear-icon">📈</div>
+<div>
+<h3>Rigol 4-Channel 200MHz Digital Oscilloscope</h3>
+<p>Validates high-speed clock signals, SPI flash ROM communication, power-on sequencing, and embedded controller pulses in real time.</p>
+<div class="lab-gear-specs"><span>2 GSa/s Sample Rate</span><span>Serial Bus Decoding</span><span>Logic Analyzer</span></div>
+</div>
+</div>
+
+<div class="lab-gear-card">
+<div class="lab-gear-icon">🛡</div>
+<div>
+<h3>Class-100 Clean Air Hood & Ultrasonic Bath</h3>
+<p>Laminar-flow workstation for dust-free screen replacement, paired with multi-frequency ultrasonic baths for liquid-damage flux and corrosion removal.</p>
+<div class="lab-gear-specs"><span>HEPA H14 Filtration</span><span>Sweep Ultrasonic Tech</span><span>ESD-Ground Protected</span></div>
+</div>
+</div>
+</div>
+</div></section>
+
+<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">What we focus on</span><h2>Four principles for better service</h2></div></div><div class="grid grid-4"><div class="card"><div class="card-icon">01</div><h3>Clarity</h3><p>Explain findings, options, costs and limitations before proceeding.</p></div><div class="card"><div class="card-icon">02</div><h3>Compatibility</h3><p>Check laptop model and component compatibility before upgrades.</p></div><div class="card"><div class="card-icon">03</div><h3>Care</h3><p>Handle customer devices and information responsibly.</p></div><div class="card"><div class="card-icon">04</div><h3>Verification</h3><p>Test completed work and communicate the handover status.</p></div></div></div></section>
+
+<!-- NEW SECTION 2: Milestones & Evolution Timeline -->
+<section class="section alt" id="company-timeline"><div class="container">
+<div class="section-head"><div><span class="eyebrow">Our journey</span><h2>Milestones of Continuous Growth & Service Excellence</h2></div><p>From a dedicated single-bench hardware diagnostic desk to a recognized multi-brand sales and repair center.</p></div>
+<div class="timeline-track">
+<div class="timeline-node">
+<div class="timeline-node-header"><span class="timeline-year">2018</span></div>
+<h4>Foundation</h4>
+<p class="muted-small">Established as a specialized chip-level diagnostic laboratory focusing on motherboard recovery for workstations and gaming laptops.</p>
+</div>
+<div class="timeline-node">
+<div class="timeline-node-header"><span class="timeline-year">2020</span></div>
+<h4>Certified Sales</h4>
+<p class="muted-small">Launched our certified refurbished showroom with mandatory battery-health testing and honest grading criteria.</p>
+</div>
+<div class="timeline-node">
+<div class="timeline-node-header"><span class="timeline-year">2022</span></div>
+<h4>B2B Fleet SLAs</h4>
+<p class="muted-small">Introduced guaranteed 24-hr turnaround SLA programs for regional creative studios, architectural firms, and corporate IT departments.</p>
+</div>
+<div class="timeline-node">
+<div class="timeline-node-header"><span class="timeline-year">2024</span></div>
+<h4>Thermal Lab</h4>
+<p class="muted-small">Commissioned FLIR thermal imaging and automated BGA rework equipment, alongside our proprietary 25-Point Diagnostic Standard.</p>
+</div>
+<div class="timeline-node">
+<div class="timeline-node-header"><span class="timeline-year">Today</span></div>
+<h4>12,000+ Devices</h4>
+<p class="muted-small">Proudly serving thousands of happy clients with transparent estimates, genuine OEM component sourcing, and comprehensive warranty support.</p>
+</div>
+</div>
+</div></section>
 <section class="section"><div class="container"><div class="notice"><strong>Business details to complete before launch:</strong> registered or trading name, address, years in operation, technician names and qualifications, actual repair capabilities, supplier/parts policy and verified customer testimonials.</div></div></section>
 </main>
 

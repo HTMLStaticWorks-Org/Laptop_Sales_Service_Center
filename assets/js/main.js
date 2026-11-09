@@ -105,5 +105,51 @@
   result.innerHTML = `<strong>Demo lookup only</strong><p>Job ID <b>${id.replace(/[<>&"]/g, '')}</b> was entered. No live repair database is connected, so no customer repair status can be retrieved.</p>`;
  });
 
+ // Interactive Diagnostic & Service Estimator (Home 1)
+ const estimatorContainer = document.querySelector('#diagnostic-estimator');
+ if (estimatorContainer) {
+  const devicePills = estimatorContainer.querySelectorAll('[data-device-type]');
+  const issuePills = estimatorContainer.querySelectorAll('[data-issue-type]');
+  const priceDisplay = estimatorContainer.querySelector('#est-price');
+  const turnaroundDisplay = estimatorContainer.querySelector('#est-turnaround');
+  const warrantyDisplay = estimatorContainer.querySelector('#est-warranty');
+  const ctaLink = estimatorContainer.querySelector('#est-cta-link');
+
+  function updateEstimator() {
+   const activeDevice = estimatorContainer.querySelector('[data-device-type].active');
+   const activeIssue = estimatorContainer.querySelector('[data-issue-type].active');
+   if (!activeIssue) return;
+
+   const price = activeIssue.dataset.basePrice || '$49';
+   const time = activeIssue.dataset.turnaround || '24-48 Hours';
+   const warranty = activeIssue.dataset.warranty || '6 Months';
+   const issueName = activeIssue.dataset.issueName || 'Service';
+   const deviceName = activeDevice ? activeDevice.textContent.trim() : 'Laptop';
+
+   if (priceDisplay) priceDisplay.textContent = price;
+   if (turnaroundDisplay) turnaroundDisplay.textContent = time;
+   if (warrantyDisplay) warrantyDisplay.textContent = warranty;
+   if (ctaLink) {
+    ctaLink.href = `contact.html?device=${encodeURIComponent(deviceName)}&issue=${encodeURIComponent(issueName)}#booking`;
+   }
+  }
+
+  devicePills.forEach(pill => {
+   pill.addEventListener('click', () => {
+    devicePills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    updateEstimator();
+   });
+  });
+
+  issuePills.forEach(pill => {
+   pill.addEventListener('click', () => {
+    issuePills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    updateEstimator();
+   });
+  });
+ }
+
  document.querySelectorAll('[data-year]').forEach(el => (el.textContent = new Date().getFullYear()));
 })();

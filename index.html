@@ -9,7 +9,7 @@
 <nav class="nav-links" aria-label="Main navigation">
 <a class="active" aria-current="page" href="index.html">Home 1</a><a href="home-2.html">Home 2</a><a href="about.html">About</a><a href="laptops.html">Laptops</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
 </nav>
-<div class="nav-actions"><div class="nav-toggles" role="group" aria-label="Display preferences"><button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><span class="toggle-divider" aria-hidden="true"></span><button class="icon-btn" type="button" data-dir-toggle aria-label="Toggle text direction"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16l-4-4 4-4M17 8l4 4-4 4M3 12h18"/></svg><span data-dir-label>RTL</span></button></div><a class="btn btn-primary" href="contact.html">Book a repair</a></div>
+<div class="nav-actions"><div class="nav-toggles" role="group" aria-label="Display preferences"><button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><span class="toggle-divider" aria-hidden="true"></span><button class="icon-btn" type="button" data-dir-toggle aria-label="Toggle text direction"><span data-dir-label>RTL</span></button></div><a class="btn btn-primary" href="contact.html">Book a repair</a></div>
 </div></header>
 
 <main>
@@ -20,8 +20,82 @@
 <div class="card"><div class="card-icon">⌂</div><h3>Student</h3><p>Practical options for learning, projects and everyday use.</p></div>
 <div class="card"><div class="card-icon">↻</div><h3>Refurbished</h3><p>Clearly graded devices with battery and condition information.</p></div>
 </div></div></section>
+
+<!-- NEW SECTION 1: Interactive Live Diagnostic & Repair Cost Estimator -->
+<section class="section" id="diagnostic-estimator"><div class="container">
+<div class="section-head"><div><span class="eyebrow">Instant calculation</span><h2>Diagnostic & Repair Cost Estimator</h2></div><p>Select your laptop category and issue type to calculate typical turnaround times, warranty scope, and preliminary estimate guidelines.</p></div>
+<div class="estimator-grid">
+<div>
+<div class="pill-selector-title"><span>1. Select Device Profile</span></div>
+<div class="pill-group">
+<button type="button" class="pill-btn active" data-device-type>Ultrabook / Thin & Light</button>
+<button type="button" class="pill-btn" data-device-type>High-End Gaming Rig</button>
+<button type="button" class="pill-btn" data-device-type>Business Workstation</button>
+<button type="button" class="pill-btn" data-device-type>Apple MacBook</button>
+</div>
+<div class="pill-selector-title"><span>2. Select Problem Category</span></div>
+<div class="pill-group">
+<button type="button" class="pill-btn active" data-issue-type data-base-price="From $65" data-turnaround="Same Day (2-4 Hrs)" data-warranty="12 Months" data-issue-name="Screen / Display">▣ Screen / Display Fault</button>
+<button type="button" class="pill-btn" data-issue-type data-base-price="From $45" data-turnaround="1 - 2 Hours" data-warranty="6 Months" data-issue-name="Battery / Charging">⚡ Battery Degradation / Swelling</button>
+<button type="button" class="pill-btn" data-issue-type data-base-price="From $85" data-turnaround="24 - 48 Hours" data-warranty="6 Months" data-issue-name="Liquid Damage">💧 Liquid Spill Emergency</button>
+<button type="button" class="pill-btn" data-issue-type data-base-price="From $39" data-turnaround="Same Day (3 Hrs)" data-warranty="90 Days" data-issue-name="Overheating / Fans">❄ Overheating & Thermal Throttling</button>
+<button type="button" class="pill-btn" data-issue-type data-base-price="From $95" data-turnaround="48 - 72 Hours" data-warranty="6 Months" data-issue-name="Motherboard Dead">⌘ Dead Motherboard / No Power</button>
+<button type="button" class="pill-btn" data-issue-type data-base-price="From $49" data-turnaround="1 - 2 Hours" data-warranty="Lifetime OEM" data-issue-name="RAM / SSD Upgrade">↗ RAM & NVMe Storage Upgrade</button>
+</div>
+<div class="notice">Estimated values are preliminary benchmark baselines. All exact costs require physical intake inspection and explicit customer authorization before any paid work starts.</div>
+</div>
+<div class="estimate-receipt-card">
+<span class="tag">Live Service Quote</span>
+<div class="estimate-price-banner">
+<div class="muted-small" style="text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Estimated Service Baseline</div>
+<div class="estimate-price-display" id="est-price">From $65</div>
+</div>
+<div class="estimate-eta-row"><span>Estimated Turnaround</span><strong id="est-turnaround">Same Day (2-4 Hrs)</strong></div>
+<div class="estimate-eta-row"><span>Hardware Warranty</span><strong id="est-warranty">12 Months</strong></div>
+<div class="estimate-eta-row"><span>Diagnostic Intake Fee</span><strong style="color:#16a34a">Complimentary With Repair</strong></div>
+<ul class="estimate-features-list">
+<li>100% OEM-matched or certified replacement parts</li>
+<li>Anti-static ESD-safe certified workstation</li>
+<li>Post-repair functional stress verification</li>
+</ul>
+<a id="est-cta-link" class="btn btn-primary" style="width:100%" href="contact.html#booking">Book with this estimate</a>
+</div>
+</div>
+</div></section>
+
 <section class="section"><div class="container split"><div><span class="eyebrow">Precision service</span><h2>Repair guidance that starts with a proper diagnosis.</h2><p>From display and keyboard issues to board-level faults, understand the repair process and approve an estimate before paid work begins.</p><div class="actions"><a class="btn btn-primary" href="services.html">View services</a><a class="btn btn-secondary" href="contact.html#booking">Request a diagnosis</a></div></div><img src="assets/images/repair-art.svg" alt="Illustration of laptop circuit board diagnostics"></div></section>
+
+<!-- NEW SECTION 2: Lapserv 25-Point Diagnostic Standard -->
+<section class="section alt" id="quality-audit"><div class="container">
+<div class="section-head"><div><span class="eyebrow">Rigorous standards</span><h2>Lapserv 25-Point Diagnostic Standard</h2></div><p>Every laptop serviced or refurbished through our workshop undergoes a multi-layer technical verification before handover.</p></div>
+<div class="audit-grid">
+<div class="audit-card-v2"><div><div class="audit-header"><span class="audit-badge">Display & Color</span><span class="status">Pass</span></div><h3>Visual & Color Calibration</h3><p>Full sub-pixel dead-pixel mapping, back-light bleed uniformity inspection, and 100% sRGB color gamut checks.</p></div><ul class="audit-checklist"><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Zero dead/stuck pixel tolerance</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>eDP panel cable integrity check</li></ul></div>
+<div class="audit-card-v2"><div><div class="audit-header"><span class="audit-badge">Motherboard</span><span class="status">Pass</span></div><h3>Power Rail & Telemetry</h3><p>Oscilloscope and multimeter verification of 3.3V, 5V, and 12V rails with standby leak current measurement.</p></div><ul class="audit-checklist"><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>DC-in jack ripple voltage test</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Charging IC & MOSFET thermals</li></ul></div>
+<div class="audit-card-v2"><div><div class="audit-header"><span class="audit-badge">Thermals</span><span class="status">Pass</span></div><h3>Thermal & Acoustic Stress</h3><p>30-minute dual CPU/GPU burn-in under heavy synthetics, measuring delta-T dissipation and acoustic fan decibels.</p></div><ul class="audit-checklist"><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Vapor chamber vacuum pressure</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Acoustic fan bearing test</li></ul></div>
+<div class="audit-card-v2"><div><div class="audit-header"><span class="audit-badge">I/O Ports & Chassis</span><span class="status">Pass</span></div><h3>Ports, Hinge & Input</h3><p>Full 100-key switch matrix validation, USB-C PD load tests, Thunderbolt throughput, and calibrated hinge torque.</p></div><ul class="audit-checklist"><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>100W USB-C Power Delivery test</li><li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Chassis grounding & isolation</li></ul></div>
+</div>
+<div class="quality-seal-strip"><div><strong style="font-size:16px;display:block">Included with every completed repair or certified sale:</strong><p style="margin:4px 0 0">Printed Diagnostic Inspection Certificate with recorded serial numbers, battery health percentage, and warranty coverage stamp.</p></div><a class="btn btn-secondary" href="services.html">Explore our diagnostic protocol</a></div>
+</div></section>
+
 <section class="section alt"><div class="container"><div class="section-head"><div><span class="eyebrow">How it works</span><h2>A clear path from enquiry to handover</h2></div></div><div class="grid grid-3"><div class="card"><div class="card-icon">01</div><h3>Tell us the issue</h3><p>Share your device brand, model and symptoms through the enquiry form.</p></div><div class="card"><div class="card-icon">02</div><h3>Review the estimate</h3><p>Understand the diagnosis and approve any paid repair before work proceeds.</p></div><div class="card"><div class="card-icon">03</div><h3>Testing and collection</h3><p>After repair, the device should be tested before pickup or delivery.</p></div></div></div></section>
+
+<!-- NEW SECTION 3: Genuine Tier-1 OEM Components & Ecosystem -->
+<section class="section" id="component-ecosystem"><div class="container">
+<div class="section-head"><div><span class="eyebrow">Certified sourcing</span><h2>Tier-1 OEM Components. Never Counterfeits.</h2></div><p>We source authentic replacement parts and upgrades directly from authorized manufacturer channels and certified component partners.</p></div>
+<div class="oem-brand-scroller">
+<div class="oem-brand-pill"><span class="dot"></span>Samsung Semiconductor (DDR5 & V-NAND)</div>
+<div class="oem-brand-pill"><span class="dot"></span>Crucial by Micron (Low-Latency SODIMM)</div>
+<div class="oem-brand-pill"><span class="dot"></span>Western Digital Black (Gen4/Gen5 NVMe)</div>
+<div class="oem-brand-pill"><span class="dot"></span>BOE & LG Display (IPS / OLED Panels)</div>
+<div class="oem-brand-pill"><span class="dot"></span>Texas Instruments (Battery Fuel Gauge ICs)</div>
+<div class="oem-brand-pill"><span class="dot"></span>Thermal Grizzly (PTM7950 & Kryonaut)</div>
+</div>
+<div class="oem-shield-grid">
+<div class="oem-shield-card"><span class="tag">Security & Integrity</span><h3>Zero Data-Loss Priority</h3><p>Storage drives remain customer-encrypted or are backed up onto temporary secure encrypted staging before board-level repairs commence.</p></div>
+<div class="oem-shield-card"><span class="tag">Component Standard</span><h3>100% Serial Compatibility</h3><p>No spurious BIOS lockouts, battery warnings, or flickering displays. Every component matches manufacturer serial protocols.</p></div>
+<div class="oem-shield-card"><span class="tag">Warranty Backed</span><h3>Up to 12 Months Warranty</h3><p>All installed displays, batteries, motherboards, and memory modules are backed by clear, written replacement coverage.</p></div>
+</div>
+</div></section>
 <section class="section"><div class="container card" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap"><div><span class="eyebrow">Need assistance?</span><h2>Tell us what your laptop needs.</h2><p>Use the contact page to prepare a service enquiry.</p></div><a class="btn btn-primary" href="contact.html">Contact Lapserv</a></div></section>
 </main>
 
