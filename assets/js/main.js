@@ -151,5 +151,74 @@
   });
  }
 
+ // ---- Hero category chips (Laptops page): set the catalogue filter and jump to it
+ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ document.querySelectorAll('[data-filter-chip]').forEach(btn =>
+  btn.addEventListener('click', () => {
+   if (category) {
+    category.value = btn.dataset.filterChip;
+    filterProducts();
+   }
+   document.getElementById('catalog')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+  })
+ );
+
+ // ---- Motion: scroll reveal, count-up numbers, pointer parallax
+ root.classList.add('js');
+
+ function animateCount(el) {
+  const end = parseFloat(el.dataset.count), dec = +(el.dataset.decimals || 0);
+  const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+  const show = v => (el.textContent = pre + v.toFixed(dec) + suf);
+  if (reduceMotion || Number.isNaN(end)) return show(end || 0);
+  const t0 = performance.now(), dur = 1600;
+  (function step(t) {
+   const p = Math.min((t - t0) / dur, 1);
+   show(end * (1 - Math.pow(1 - p, 3)));
+   if (p < 1) requestAnimationFrame(step);
+  })(t0);
+ }
+
+ function markVisible(el) {
+  el.classList.add('in');
+  if (el.hasAttribute('data-count')) animateCount(el);
+  if (el.classList.contains('reveal')) {
+   const delay = (parseFloat(getComputedStyle(el).getPropertyValue('--d')) || 0) * 1000;
+   // once the entrance has played, drop the reveal classes so hover transitions work again
+   setTimeout(() => el.classList.remove('reveal', 'reveal-left', 'reveal-right', 'reveal-zoom'), 1400 + delay);
+  }
+ }
+
+ const motionTargets = document.querySelectorAll('.reveal, [data-count]');
+ if (!('IntersectionObserver' in window) || reduceMotion) {
+  motionTargets.forEach(el => {
+   el.classList.add('in');
+   if (el.hasAttribute('data-count')) animateCount(el);
+  });
+ } else {
+  const io = new IntersectionObserver(
+   entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    io.unobserve(e.target);
+    markVisible(e.target);
+   }),
+   { threshold: 0.15, rootMargin: '0px 0px -6% 0px' }
+  );
+  motionTargets.forEach(el => io.observe(el));
+ }
+
+ const cinema = document.querySelector('.hero-cinema');
+ if (cinema && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+  cinema.addEventListener('pointermove', e => {
+   const r = cinema.getBoundingClientRect();
+   cinema.style.setProperty('--px', ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
+   cinema.style.setProperty('--py', ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
+  });
+  cinema.addEventListener('pointerleave', () => {
+   cinema.style.setProperty('--px', 0);
+   cinema.style.setProperty('--py', 0);
+  });
+ }
+
  document.querySelectorAll('[data-year]').forEach(el => (el.textContent = new Date().getFullYear()));
 })();
