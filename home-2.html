@@ -17,6 +17,63 @@
 <div class="hc-bg"><img src="assets/images/home2-hero.jpg" alt="Overhead view of a creator working at a glowing triple-monitor workstation" width="1920" height="1080" fetchpriority="high"></div>
 <div class="hc-overlay"></div><div class="hc-gridlines"></div><span class="hc-orb hc-orb-1"></span><span class="hc-orb hc-orb-2"></span>
 <div class="container hc-inner">
+<!-- Passing connection flow curves & arrows in the center (User circled focal zone) -->
+<div class="flow-connections flow-home2-center" aria-hidden="true">
+<svg class="flow-svg flow-home2-svg" viewBox="0 0 500 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="h2Grad1" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#38bdf8" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="h2Grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="h2Grad3" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.85" />
+    </linearGradient>
+    <linearGradient id="h2PulseGrad1" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#4ade80" />
+    </linearGradient>
+    <filter id="h2Glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <marker id="h2Arrow1" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2Grad1)" />
+    </marker>
+    <marker id="h2Arrow2" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2Grad2)" />
+    </marker>
+    <marker id="h2Arrow3" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2Grad3)" />
+    </marker>
+  </defs>
+  <g opacity="0.45" filter="url(#h2Glow)">
+    <path class="flow-bg-glow" d="M 440 420 C 410 340 370 280 270 240 C 205 215 170 180 165 125 C 160 80 155 50 125 35" stroke="url(#h2Grad1)" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path class="flow-bg-glow" d="M 460 70 C 390 120 310 170 255 240 C 215 295 160 365 50 395" stroke="url(#h2Grad2)" stroke-width="6" stroke-linecap="round" fill="none" />
+  </g>
+  <path class="flow-path flow-main-1" d="M 440 420 C 410 340 370 280 270 240 C 205 215 170 180 165 125 C 160 80 155 50 125 35" stroke="url(#h2Grad1)" stroke-width="3.5" stroke-linecap="round" fill="none" marker-end="url(#h2Arrow1)" />
+  <path class="flow-pulse flow-pulse-r1" d="M 440 420 C 410 340 370 280 270 240 C 205 215 170 180 165 125 C 160 80 155 50 125 35" stroke="url(#h2PulseGrad1)" stroke-width="4.8" stroke-linecap="round" stroke-dasharray="28 170" fill="none" />
+  <path class="flow-path flow-main-2" d="M 460 70 C 390 120 310 170 255 240 C 215 295 160 365 50 395" stroke="url(#h2Grad2)" stroke-width="2.8" stroke-linecap="round" fill="none" marker-end="url(#h2Arrow2)" />
+  <path class="flow-pulse flow-pulse-r2" d="M 460 70 C 390 120 310 170 255 240 C 215 295 160 365 50 395" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-dasharray="22 135" fill="none" />
+  <path class="flow-path flow-main-3" d="M 60 220 C 140 190 215 200 275 235 C 345 270 410 275 480 260" stroke="url(#h2Grad3)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="8 6" fill="none" marker-end="url(#h2Arrow3)" />
+  <path class="flow-path flow-main-4" d="M 280 170 C 260 230 240 290 260 360 C 270 395 285 430 295 450" stroke="url(#h2Grad1)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+  <g class="flow-nodes">
+    <circle cx="270" cy="240" r="5.5" fill="#38bdf8" class="flow-node node-pulse" />
+    <circle cx="255" cy="240" r="4.5" fill="#a855f7" class="flow-node node-pulse" style="animation-delay: -1.4s;" />
+    <circle cx="165" cy="125" r="4" fill="#22d3ee" class="flow-node" />
+    <circle cx="125" cy="35" r="3.5" fill="#4ade80" class="flow-node" />
+    <circle cx="50" cy="395" r="3.5" fill="#38bdf8" class="flow-node" />
+  </g>
+</svg>
+</div>
 <div class="hc-copy">
 <span class="hc-badge"><i></i>Specialist computing</span>
 <h1 aria-label="Engineered for performance. Serviced with precision."><span class="hc-line">Engineered for</span><span class="rotator" aria-hidden="true"><span>performance.</span><span>creators.</span><span>uptime.</span></span><span class="hc-line">Serviced with precision.</span></h1>
