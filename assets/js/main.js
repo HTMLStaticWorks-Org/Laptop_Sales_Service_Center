@@ -1,8 +1,7 @@
 (() => {
  const root = document.documentElement;
- const themeBtn = document.querySelector('[data-theme-toggle]');
- const dirBtn = document.querySelector('[data-dir-toggle]');
- const dirLabel = dirBtn?.querySelector('[data-dir-label]');
+ const themeBtns = document.querySelectorAll('[data-theme-toggle]');
+ const dirBtns = document.querySelectorAll('[data-dir-toggle]');
  const menuBtn = document.querySelector('.menu-btn');
  const nav = document.querySelector('.nav-links');
 
@@ -12,17 +11,22 @@
  function syncControls() {
   const isDark = root.dataset.theme === 'dark';
   const isRtl = root.dir === 'rtl';
-  if (themeBtn) {
-   themeBtn.innerHTML = isDark ? SUN_ICON : MOON_ICON;
-   themeBtn.classList.toggle('is-active', isDark);
-   themeBtn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
-  }
-  if (dirBtn) {
+  themeBtns.forEach(btn => {
+   btn.innerHTML = isDark ? SUN_ICON : MOON_ICON;
+   btn.classList.toggle('is-active', isDark);
+   const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+   btn.title = label;
+   btn.setAttribute('aria-label', label);
+  });
+  dirBtns.forEach(btn => {
+   const dirLabel = btn.querySelector('[data-dir-label]');
    if (dirLabel) dirLabel.textContent = isRtl ? 'LTR' : 'RTL';
-   else dirBtn.textContent = isRtl ? 'LTR' : 'RTL';
-   dirBtn.classList.toggle('is-active', isRtl);
-   dirBtn.title = isRtl ? 'Switch to Left-to-Right (LTR)' : 'Switch to Right-to-Left (RTL)';
-  }
+   else btn.textContent = isRtl ? 'LTR' : 'RTL';
+   btn.classList.toggle('is-active', isRtl);
+   const label = isRtl ? 'Switch to Left-to-Right (LTR)' : 'Switch to Right-to-Left (RTL)';
+   btn.title = label;
+   btn.setAttribute('aria-label', label);
+  });
  }
 
  const savedTheme = localStorage.getItem('lapserv-theme');
@@ -34,31 +38,64 @@
  }
  syncControls();
 
- themeBtn?.addEventListener('click', () => {
-  const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  root.dataset.theme = next;
-  localStorage.setItem('lapserv-theme', next);
-  syncControls();
+ themeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+   const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+   root.dataset.theme = next;
+   localStorage.setItem('lapserv-theme', next);
+   syncControls();
+  });
  });
 
- dirBtn?.addEventListener('click', () => {
-  const next = root.dir === 'rtl' ? 'ltr' : 'rtl';
-  root.dir = next;
-  document.body.classList.toggle('rtl', next === 'rtl');
-  localStorage.setItem('lapserv-dir', next);
-  syncControls();
+ dirBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+   const next = root.dir === 'rtl' ? 'ltr' : 'rtl';
+   root.dir = next;
+   document.body.classList.toggle('rtl', next === 'rtl');
+   localStorage.setItem('lapserv-dir', next);
+   syncControls();
+  });
  });
 
- menuBtn?.addEventListener('click', () => nav?.classList.toggle('open'));
+ function setNavOpen(isOpen) {
+  if (!nav) return;
+  nav.classList.toggle('open', isOpen);
+  if (menuBtn) {
+   menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+   menuBtn.textContent = isOpen ? '✕' : '☰';
+  }
+ }
 
- // Ensure active nav link highlights current page
+ menuBtn?.addEventListener('click', () => {
+  const isOpen = !nav?.classList.contains('open');
+  setNavOpen(isOpen);
+ });
+
+ document.addEventListener('click', (e) => {
+  if (nav?.classList.contains('open') && !nav.contains(e.target) && !menuBtn?.contains(e.target)) {
+   setNavOpen(false);
+  }
+ });
+
+ document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && nav?.classList.contains('open')) {
+   setNavOpen(false);
+   menuBtn?.focus();
+  }
+ });
+
+ // Ensure active nav link highlights current page and close drawer on link click
  const currentPage = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
- document.querySelectorAll('.nav-links a').forEach(link => {
+ document.querySelectorAll('.nav-links > a').forEach(link => {
   const href = (link.getAttribute('href') || '').split('#')[0].toLowerCase();
   const isActive = href === currentPage;
   link.classList.toggle('active', isActive);
   if (isActive) link.setAttribute('aria-current', 'page');
   else link.removeAttribute('aria-current');
+ });
+
+ document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => setNavOpen(false));
  });
 
  document.querySelectorAll('form[data-demo-form]').forEach(form =>

@@ -5,9 +5,13 @@
 
 <header class="site-header"><div class="container nav">
 <a class="brand" href="index.html" aria-label="Lapserv Home"><img src="assets/images/logo.png" alt="Lapserv"></a>
-<button class="menu-btn" aria-label="Open navigation">☰</button>
+<button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 <nav class="nav-links" aria-label="Main navigation">
 <a href="index.html">Home 1</a><a class="active" aria-current="page" href="home-2.html">Home 2</a><a href="about.html">About</a><a href="laptops.html">Laptops</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+<div class="nav-drawer-actions">
+<a class="btn btn-primary" href="contact.html">Book a repair</a>
+<div class="nav-toggles" role="group" aria-label="Display preferences"><button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><span class="toggle-divider" aria-hidden="true"></span><button class="icon-btn" type="button" data-dir-toggle aria-label="Toggle text direction"><span data-dir-label>RTL</span></button></div>
+</div>
 </nav>
 <div class="nav-actions"><div class="nav-toggles" role="group" aria-label="Display preferences"><button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle light and dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><span class="toggle-divider" aria-hidden="true"></span><button class="icon-btn" type="button" data-dir-toggle aria-label="Toggle text direction"><span data-dir-label>RTL</span></button></div><a class="btn btn-primary" href="contact.html">Book a repair</a></div>
 </div></header>
@@ -16,64 +20,106 @@
 <section class="hero-cinema" id="top">
 <div class="hc-bg"><img src="assets/images/home2-hero.jpg" alt="Overhead view of a creator working at a glowing triple-monitor workstation" width="1920" height="1080" fetchpriority="high"></div>
 <div class="hc-overlay"></div><div class="hc-gridlines"></div><span class="hc-orb hc-orb-1"></span><span class="hc-orb hc-orb-2"></span>
-<div class="container hc-inner">
-<!-- Passing connection flow curves & arrows in the center (User circled focal zone) -->
+<!-- Connection flow curves & 4-way passing arrows across the workstation focal zone -->
 <div class="flow-connections flow-home2-center" aria-hidden="true">
-<svg class="flow-svg flow-home2-svg" viewBox="0 0 500 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="flow-svg flow-home2-svg" viewBox="0 0 600 540" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="h2Grad1" x1="100%" y1="100%" x2="0%" y2="0%">
+    <linearGradient id="h2GradTL" x1="100%" y1="100%" x2="0%" y2="0%">
       <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.9" />
-      <stop offset="45%" stop-color="#38bdf8" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.95" />
       <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.95" />
     </linearGradient>
-    <linearGradient id="h2Grad2" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.85" />
-      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.95" />
-      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.9" />
-    </linearGradient>
-    <linearGradient id="h2Grad3" x1="0%" y1="50%" x2="100%" y2="50%">
+    <linearGradient id="h2GradTR" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#10b981" stop-opacity="0.85" />
-      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.9" />
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.95" />
     </linearGradient>
-    <linearGradient id="h2PulseGrad1" x1="100%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#c084fc" />
+    <linearGradient id="h2GradBL" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="h2GradBR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="h2GradLoop" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="h2PulseGradTL" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
       <stop offset="50%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#4ade80" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+    <linearGradient id="h2PulseGradTR" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+    <linearGradient id="h2PulseGradBL" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+    <linearGradient id="h2PulseGradBR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#ffffff" />
     </linearGradient>
     <filter id="h2Glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4.5" result="blur" />
+      <feGaussianBlur stdDeviation="5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
-    <marker id="h2Arrow1" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2Grad1)" />
+    <marker id="h2ArrowTL" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2GradTL)" />
     </marker>
-    <marker id="h2Arrow2" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2Grad2)" />
+    <marker id="h2ArrowTR" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2GradTR)" />
     </marker>
-    <marker id="h2Arrow3" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2Grad3)" />
+    <marker id="h2ArrowBL" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2GradBL)" />
+    </marker>
+    <marker id="h2ArrowBR" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 2 L 11 6 L 1 10 L 3.5 6 Z" fill="url(#h2GradBR)" />
     </marker>
   </defs>
-  <g opacity="0.45" filter="url(#h2Glow)">
-    <path class="flow-bg-glow" d="M 440 420 C 410 340 370 280 270 240 C 205 215 170 180 165 125 C 160 80 155 50 125 35" stroke="url(#h2Grad1)" stroke-width="7" stroke-linecap="round" fill="none" />
-    <path class="flow-bg-glow" d="M 460 70 C 390 120 310 170 255 240 C 215 295 160 365 50 395" stroke="url(#h2Grad2)" stroke-width="6" stroke-linecap="round" fill="none" />
+  <g opacity="0.55" filter="url(#h2Glow)">
+    <path class="flow-bg-glow" d="M 470 480 C 400 410 360 340 300 270 C 230 190 190 120 105 55" stroke="url(#h2GradTL)" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path class="flow-bg-glow" d="M 120 460 C 190 380 230 330 300 270 C 370 200 430 140 515 65" stroke="url(#h2GradTR)" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path class="flow-bg-glow" d="M 490 110 C 420 180 370 220 300 270 C 230 330 170 400 85 470" stroke="url(#h2GradBL)" stroke-width="6" stroke-linecap="round" fill="none" />
+    <path class="flow-bg-glow" d="M 140 100 C 210 180 250 220 300 270 C 360 330 430 400 510 480" stroke="url(#h2GradBR)" stroke-width="6" stroke-linecap="round" fill="none" />
   </g>
-  <path class="flow-path flow-main-1" d="M 440 420 C 410 340 370 280 270 240 C 205 215 170 180 165 125 C 160 80 155 50 125 35" stroke="url(#h2Grad1)" stroke-width="3.5" stroke-linecap="round" fill="none" marker-end="url(#h2Arrow1)" />
-  <path class="flow-pulse flow-pulse-r1" d="M 440 420 C 410 340 370 280 270 240 C 205 215 170 180 165 125 C 160 80 155 50 125 35" stroke="url(#h2PulseGrad1)" stroke-width="4.8" stroke-linecap="round" stroke-dasharray="28 170" fill="none" />
-  <path class="flow-path flow-main-2" d="M 460 70 C 390 120 310 170 255 240 C 215 295 160 365 50 395" stroke="url(#h2Grad2)" stroke-width="2.8" stroke-linecap="round" fill="none" marker-end="url(#h2Arrow2)" />
-  <path class="flow-pulse flow-pulse-r2" d="M 460 70 C 390 120 310 170 255 240 C 215 295 160 365 50 395" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-dasharray="22 135" fill="none" />
-  <path class="flow-path flow-main-3" d="M 60 220 C 140 190 215 200 275 235 C 345 270 410 275 480 260" stroke="url(#h2Grad3)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="8 6" fill="none" marker-end="url(#h2Arrow3)" />
-  <path class="flow-path flow-main-4" d="M 280 170 C 260 230 240 290 260 360 C 270 395 285 430 295 450" stroke="url(#h2Grad1)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+  <path class="flow-path flow-main-tl" d="M 470 480 C 400 410 360 340 300 270 C 230 190 190 120 105 55" stroke="url(#h2GradTL)" stroke-width="3.4" stroke-linecap="round" fill="none" marker-end="url(#h2ArrowTL)" />
+  <path class="flow-pulse flow-pulse-tl" d="M 470 480 C 400 410 360 340 300 270 C 230 190 190 120 105 55" stroke="url(#h2PulseGradTL)" stroke-width="4.8" stroke-linecap="round" stroke-dasharray="28 180" fill="none" />
+  <path class="flow-path flow-main-tr" d="M 120 460 C 190 380 230 330 300 270 C 370 200 430 140 515 65" stroke="url(#h2GradTR)" stroke-width="3.4" stroke-linecap="round" fill="none" marker-end="url(#h2ArrowTR)" />
+  <path class="flow-pulse flow-pulse-tr" d="M 120 460 C 190 380 230 330 300 270 C 370 200 430 140 515 65" stroke="url(#h2PulseGradTR)" stroke-width="4.8" stroke-linecap="round" stroke-dasharray="24 160" fill="none" />
+  <path class="flow-path flow-main-bl" d="M 490 110 C 420 180 370 220 300 270 C 230 330 170 400 85 470" stroke="url(#h2GradBL)" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#h2ArrowBL)" />
+  <path class="flow-pulse flow-pulse-bl" d="M 490 110 C 420 180 370 220 300 270 C 230 330 170 400 85 470" stroke="url(#h2PulseGradBL)" stroke-width="4.4" stroke-linecap="round" stroke-dasharray="26 170" fill="none" />
+  <path class="flow-path flow-main-br" d="M 140 100 C 210 180 250 220 300 270 C 360 330 430 400 510 480" stroke="url(#h2GradBR)" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#h2ArrowBR)" />
+  <path class="flow-pulse flow-pulse-br" d="M 140 100 C 210 180 250 220 300 270 C 360 330 430 400 510 480" stroke="url(#h2PulseGradBR)" stroke-width="4.4" stroke-linecap="round" stroke-dasharray="24 165" fill="none" />
+  <path class="flow-path flow-main-loop" d="M 220 250 C 240 190 360 190 380 250 C 395 310 290 340 240 300 C 210 270 240 230 300 270" stroke="url(#h2GradLoop)" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" fill="none" />
   <g class="flow-nodes">
-    <circle cx="270" cy="240" r="5.5" fill="#38bdf8" class="flow-node node-pulse" />
-    <circle cx="255" cy="240" r="4.5" fill="#a855f7" class="flow-node node-pulse" style="animation-delay: -1.4s;" />
-    <circle cx="165" cy="125" r="4" fill="#22d3ee" class="flow-node" />
-    <circle cx="125" cy="35" r="3.5" fill="#4ade80" class="flow-node" />
-    <circle cx="50" cy="395" r="3.5" fill="#38bdf8" class="flow-node" />
+    <circle cx="300" cy="270" r="14" stroke="#38bdf8" stroke-width="1.8" fill="none" class="flow-ring-pulse" />
+    <circle cx="300" cy="270" r="6" fill="#ffffff" class="flow-node node-pulse" />
+    <circle cx="105" cy="55" r="4.5" fill="#ffffff" class="flow-node" />
+    <circle cx="200" cy="160" r="4" fill="#38bdf8" class="flow-node" />
+    <circle cx="515" cy="65" r="4.5" fill="#ffffff" class="flow-node" />
+    <circle cx="410" cy="170" r="4" fill="#06b6d4" class="flow-node" />
+    <circle cx="85" cy="470" r="4.5" fill="#ffffff" class="flow-node" />
+    <circle cx="185" cy="375" r="4" fill="#38bdf8" class="flow-node" />
+    <circle cx="510" cy="480" r="4.5" fill="#ffffff" class="flow-node" />
+    <circle cx="410" cy="385" r="4" fill="#c084fc" class="flow-node" />
+    <circle cx="300" cy="205" r="3.5" fill="#ffffff" class="flow-node" />
+    <circle cx="380" cy="250" r="3.5" fill="#38bdf8" class="flow-node" />
+    <circle cx="240" cy="300" r="3.5" fill="#ffffff" class="flow-node" />
   </g>
 </svg>
 </div>
+
+<div class="container hc-inner">
 <div class="hc-copy">
 <span class="hc-badge"><i></i>Specialist computing</span>
 <h1 aria-label="Engineered for performance. Serviced with precision."><span class="hc-line">Engineered for</span><span class="rotator" aria-hidden="true"><span>performance.</span><span>creators.</span><span>uptime.</span></span><span class="hc-line">Serviced with precision.</span></h1>
@@ -96,7 +142,11 @@
 <div class="section-head reveal"><div><span class="eyebrow">Guaranteed response</span><h2>Enterprise SLA & Turnaround Tiers</h2></div><p>Structured Service Level Agreements engineered for high-uptime professionals, creative studios, and corporate fleets.</p></div>
 <div class="sla-matrix-grid">
 <div class="sla-card reveal" style="--d:0s">
-<div><span class="tag">Pro Creators & Freelancers</span><h3>Creator Fast-Track SLA</h3><p>Engineered for video editors, 3D artists, and developers who cannot afford downtime.</p></div>
+<div class="sla-header">
+<div class="sla-tag-wrap"><span class="tag">Pro Creators &amp; Freelancers</span></div>
+<h3 class="sla-title">Creator Fast-Track SLA</h3>
+<p class="sla-desc">Engineered for video editors, 3D artists, and developers who cannot afford downtime.</p>
+</div>
 <div class="sla-turnaround-badge">24-Hour Queue</div>
 <ul class="sla-list">
 <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Priority diagnostic queue (under 3 hours)</li>
@@ -109,22 +159,30 @@
 
 <div class="sla-card popular reveal reveal-zoom" style="--d:.15s">
 <div class="sla-popular-tag">Most Recommended for Teams</div>
-<div><span class="tag" style="background:var(--primary);color:#fff">Studios (5–25 Laptops)</span><h3>Studio & Agency Fleet SLA</h3><p>Continuous operational continuity with pre-reserved standby loaner machines.</p></div>
+<div class="sla-header">
+<div class="sla-tag-wrap"><span class="tag" style="background:var(--primary);color:#fff">Studios (5–25 Laptops)</span></div>
+<h3 class="sla-title">Studio &amp; Agency Fleet SLA</h3>
+<p class="sla-desc">Continuous operational continuity with pre-reserved standby loaner machines.</p>
+</div>
 <div class="sla-turnaround-badge">12-Hour Priority</div>
 <ul class="sla-list">
 <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Guaranteed same-day loaner laptop deployment</li>
 <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Pre-stocked spare parts for team models</li>
-<li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Bi-annual ultrasonic dust & thermal repaste</li>
-<li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Consolidated monthly invoicing & asset logs</li>
+<li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Bi-annual ultrasonic dust &amp; thermal repaste</li>
+<li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Consolidated monthly invoicing &amp; asset logs</li>
 </ul>
 <a class="btn btn-primary" href="contact.html">Enroll Studio Fleet</a>
 </div>
 
 <div class="sla-card reveal" style="--d:.3s">
-<div><span class="tag">Enterprises (25+ Laptops)</span><h3>Corporate IT SLA</h3><p>Tailored enterprise infrastructure care with on-site dispatch and hardware audits.</p></div>
+<div class="sla-header">
+<div class="sla-tag-wrap"><span class="tag">Enterprises (25+ Laptops)</span></div>
+<h3 class="sla-title">Corporate IT SLA</h3>
+<p class="sla-desc">Tailored enterprise infrastructure care with on-site dispatch and hardware audits.</p>
+</div>
 <div class="sla-turnaround-badge">4-Hour Dispatch</div>
 <ul class="sla-list">
-<li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>On-site triage & emergency courier pickup</li>
+<li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>On-site triage &amp; emergency courier pickup</li>
 <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>NIST 800-88 compliant secure data destruction</li>
 <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Dedicated Technical Account Manager (TAM)</li>
 <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Custom corporate warranty extension plans</li>
