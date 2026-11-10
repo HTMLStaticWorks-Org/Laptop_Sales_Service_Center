@@ -257,5 +257,217 @@
   });
  }
 
+ // ---- Services page: Detailed service modal & Know more interactions
+ const SERVICES_DATA = {
+  motherboard: {
+   category: 'Board-level',
+   title: 'Motherboard Diagnostics & Chip-Level Repair',
+   tagline: 'Precision micro-soldering, short-circuit isolation, and component-level repair for power issues and boot failures.',
+   image: 'assets/images/svc-motherboard.jpg',
+   imageAlt: 'Close-up of a densely populated circuit board under inspection',
+   time: '24–72 hours',
+   warranty: '90-day parts & labor',
+   diagnostics: 'Comprehensive bench testing',
+   overview: 'Modern laptop logic boards integrate power management ICs (PMIC), MOSFETs, charging controllers, and high-speed data buses into a compact multi-layer PCB. When a laptop fails to turn on, cycles in boot loops, or suffers unexpected shutdowns, our board-level diagnostic isolates the exact faulty SMD component rather than writing off the entire system.',
+   highlights: [
+    'Microscope-guided multimeter and thermal imaging inspection of power rails',
+    'Short-circuit detection across 3.3V, 5V, 19V, and CPU/GPU VCORE lines',
+    'BGA rework, MOSFET replacement, and BIOS EEPROM re-flashing',
+    'Ultrasonic flux cleaning and post-repair thermal stress testing under continuous load'
+   ],
+   tip: 'Before repair begins, we provide a transparent component-level quote. In rare cases of severe multilayer PCB burnout, we advise on board replacement vs. secure data extraction.',
+   bookingUrl: 'contact.html#booking'
+  },
+  screen: {
+   category: 'Display',
+   title: 'Screen Replacement & Panel Calibration',
+   tagline: 'Factory-grade display replacements for cracked, flickering, banded, or dim screens across OLED, IPS, and high-refresh panels.',
+   image: 'assets/images/svc-screen.jpg',
+   imageAlt: 'High-resolution display showing colour grading controls',
+   time: 'Same day – 24 hrs',
+   warranty: '6-month panel warranty',
+   diagnostics: 'Free compatibility check',
+   overview: 'Whether caused by an accidental drop, pressure cracks, vertical lines, or a worn eDP display flex cable, our technicians replace damaged laptop displays with OEM-grade panels matching your exact native resolution, refresh rate (60Hz to 240Hz), color gamut, and connector pinout (30-pin / 40-pin eDP).',
+   highlights: [
+    'Full inspection of eDP ribbon cables, backlight drivers, and bezel clips',
+    'Zero-dead-pixel inspection and uniform color/brightness verification',
+    'Available for ultra-slim bezels, anti-glare matte, and glass touchscreen assemblies',
+    'Precision lid alignment to prevent uneven mechanical pressure on hinges'
+   ],
+   tip: 'Please bring your laptop charger along. We perform color balance and refresh rate verification with your operating system before sign-off.',
+   bookingUrl: 'contact.html#booking'
+  },
+  keyboard: {
+   category: 'Input & chassis',
+   title: 'Keyboard, Trackpad & Hinge Reconstruction',
+   tagline: 'Restoring smooth key travel, responsive multi-touch trackpads, and structural repair for cracked hinge anchors and top cases.',
+   image: 'assets/images/svc-keyboard.jpg',
+   imageAlt: 'Slim white keyboard seen from above',
+   time: '24–48 hours',
+   warranty: '90-day warranty',
+   diagnostics: 'Mechanical inspection',
+   overview: 'Stuck keys, ghost typing, liquid-sticky scissor clips, or stiff hinges cracking the display bezel are among the most frustrating laptop issues. We carry out precision plastic weld and brass threaded insert reconstruction for damaged hinge anchor points, as well as individual key mechanism or full riveted palmrest replacements.',
+   highlights: [
+    'Individual key mechanism repair or complete rivet-mounted keyboard replacement',
+    'Structural hinge reinforcement with industrial resin and brass anchor nut rebuilds',
+    'Precision torque balancing on left and right hinges to prevent future chassis cracks',
+    'Backlight ribbon and multi-touch trackpad tactile switch alignment'
+   ],
+   tip: 'If you hear creaking or see the casing separating when opening your laptop lid, stop forcing it immediately to avoid cracking the underlying display panel.',
+   bookingUrl: 'contact.html#booking'
+  },
+  liquid: {
+   category: 'Recovery',
+   title: 'Liquid Spill Decontamination & Board Recovery',
+   tagline: 'Immediate power isolation, ultrasonic chemical bath, and trace oxidation cleanup to salvage water, coffee, or soda-damaged devices.',
+   image: 'assets/images/svc-liquid.jpg',
+   imageAlt: 'Laptop on a table beside a drink and glasses',
+   time: '48–72 hours',
+   warranty: 'Service guarantee',
+   diagnostics: 'Emergency intake audit',
+   overview: 'Liquid spills cause immediate electrical short circuits and rapid progressive oxidation under surface-mounted chips. Our decontamination process completely strips the board down, neutralizes corrosive residues in an ultrasonic bath with specialized electronics cleaning solvent, and inspects damaged PCB traces under high magnification.',
+   highlights: [
+    'Immediate battery disconnection and residual capacitance discharge',
+    'Multi-stage ultrasonic bath cleaning to dissolve dried sugars and corrosive mineral salts',
+    'Microscope trace inspection and micro-jumper wire reconstruction for corroded vias',
+    'Full keyboard membrane, battery, and trackpad moisture and safety testing'
+   ],
+   tip: 'DO NOT place your laptop in rice or attempt to plug in the charger. Rice dust accelerates corrosion. Keep the device powered off, unplugged, and bring it in as soon as possible.',
+   bookingUrl: 'contact.html#booking'
+  },
+  thermal: {
+   category: 'Cooling',
+   title: 'Thermal Overhaul & Fan Optimization',
+   tagline: 'Deep dust extraction, bearing lubrication, and application of high-conductivity thermal paste or phase-change pads to restore peak performance.',
+   image: 'assets/images/svc-thermal.jpg',
+   imageAlt: 'Cooling loop and fans inside a computer',
+   time: '2–4 hours',
+   warranty: 'Thermal performance check',
+   diagnostics: 'Free thermal benchmark',
+   overview: 'Over months of use, factory thermal paste dries out into a crust and heatsink fins become clogged with dust and lint, causing thermal throttling, roaring fan noise, and sudden power cut-offs. Our thermal maintenance restores optimal heat transfer between CPU/GPU silicon dies and copper heatpipes.',
+   highlights: [
+    'Complete dust extraction from heatpipe fins, fan impellers, and intake grilles',
+    'Old compound removal with 99.9% isopropyl alcohol and silicon die polish',
+    'Application of premium high-performance thermal paste or phase-change pads (PTM7950)',
+    'Fan bearing inspection and dynamic RPM speed calibration',
+    'Before-and-after Cinebench and FurMark stress temperature verification'
+   ],
+   tip: 'Recommended once every 12 to 18 months for gaming laptops and high-performance workstations to prolong hardware lifespan and eliminate thermal throttling.',
+   bookingUrl: 'contact.html#booking'
+  },
+  upgrade: {
+   category: 'Upgrades',
+   title: 'RAM Expansion & NVMe SSD Storage Upgrades',
+   tagline: 'Speed up multitasking and multiply storage with high-speed PCIe Gen4 NVMe SSDs and dual-channel DDR4/DDR5 memory expansions.',
+   image: 'assets/images/svc-upgrade.jpg',
+   imageAlt: 'Motherboard CPU socket and memory slots up close',
+   time: '1–3 hours',
+   warranty: '3–5 yr hardware warranty',
+   diagnostics: 'Compatibility audit',
+   overview: 'Running out of disk space or experiencing stuttering while switching between heavy apps? We check your laptop chipset specifications, identify free M.2 NVMe slots and SODIMM slots, and upgrade your hardware with maximum speed and zero data loss.',
+   highlights: [
+    'Compatibility verification for single/dual-channel DDR4 and DDR5 speeds (up to 5600MHz)',
+    'PCIe 3.0 / PCIe 4.0 high-speed NVMe solid state drives up to 4TB',
+    'Bit-for-bit OS cloning from old drive to new SSD — retain all files, apps, and licenses',
+    'Installation of custom copper graphene heatsinks for sustained NVMe speeds'
+   ],
+   tip: 'We perform full drive health audits (S.M.A.R.T. status) prior to migration to ensure your data transfer is 100% clean and error-free.',
+   bookingUrl: 'contact.html#booking'
+  }
+ };
+
+ const serviceModal = document.getElementById('service-modal');
+ if (serviceModal) {
+  const modalImg = document.getElementById('modal-service-img');
+  const modalEyebrow = document.getElementById('modal-service-eyebrow');
+  const modalTitle = document.getElementById('modal-service-title');
+  const modalTagline = document.getElementById('modal-service-tagline');
+  const modalTime = document.getElementById('modal-service-time');
+  const modalWarranty = document.getElementById('modal-service-warranty');
+  const modalDiag = document.getElementById('modal-service-diag');
+  const modalDesc = document.getElementById('modal-service-desc');
+  const modalHighlights = document.getElementById('modal-service-highlights');
+  const modalTip = document.getElementById('modal-service-tip');
+  const modalBook = document.getElementById('modal-service-book');
+  const scrollArea = serviceModal.querySelector('.modal-scroll-area');
+  let lastActiveElement = null;
+
+  function openServiceModal(serviceKey, triggerBtn) {
+   const data = SERVICES_DATA[serviceKey];
+   if (!data) return;
+
+   lastActiveElement = triggerBtn || document.activeElement;
+
+   if (modalImg) {
+    modalImg.src = data.image;
+    modalImg.alt = data.imageAlt || data.title;
+   }
+   if (modalEyebrow) modalEyebrow.textContent = data.category;
+   if (modalTitle) modalTitle.textContent = data.title;
+   if (modalTagline) modalTagline.textContent = data.tagline;
+   if (modalTime) modalTime.textContent = data.time;
+   if (modalWarranty) modalWarranty.textContent = data.warranty;
+   if (modalDiag) modalDiag.textContent = data.diagnostics;
+   if (modalDesc) modalDesc.textContent = data.overview;
+   if (modalTip) modalTip.textContent = data.tip;
+   if (modalBook) modalBook.href = data.bookingUrl;
+
+   if (modalHighlights) {
+    modalHighlights.innerHTML = '';
+    (data.highlights || []).forEach(item => {
+     const li = document.createElement('li');
+     li.textContent = item;
+     modalHighlights.appendChild(li);
+    });
+   }
+
+   if (scrollArea) scrollArea.scrollTop = 0;
+
+   serviceModal.removeAttribute('hidden');
+   void serviceModal.offsetWidth;
+   serviceModal.classList.add('is-active');
+   document.body.classList.add('modal-open');
+
+   const closeBtn = serviceModal.querySelector('.modal-close-btn');
+   closeBtn?.focus();
+  }
+
+  function closeServiceModal() {
+   if (!serviceModal.classList.contains('is-active')) return;
+   serviceModal.classList.remove('is-active');
+   document.body.classList.remove('modal-open');
+
+   setTimeout(() => {
+    if (!serviceModal.classList.contains('is-active')) {
+     serviceModal.setAttribute('hidden', '');
+     if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+      lastActiveElement.focus();
+     }
+    }
+   }, 260);
+  }
+
+  document.querySelectorAll('.btn-know-more').forEach(btn => {
+   btn.addEventListener('click', e => {
+    e.preventDefault();
+    const key = btn.dataset.service;
+    openServiceModal(key, btn);
+   });
+  });
+
+  serviceModal.querySelectorAll('[data-modal-close]').forEach(el => {
+   el.addEventListener('click', e => {
+    e.preventDefault();
+    closeServiceModal();
+   });
+  });
+
+  document.addEventListener('keydown', e => {
+   if (e.key === 'Escape' && serviceModal.classList.contains('is-active')) {
+    closeServiceModal();
+   }
+  });
+ }
+
  document.querySelectorAll('[data-year]').forEach(el => (el.textContent = new Date().getFullYear()));
 })();
